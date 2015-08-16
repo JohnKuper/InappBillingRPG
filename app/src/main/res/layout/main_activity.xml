@@ -1,0 +1,95 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/activity_horizontal_margin"
+    >
+
+    <ImageView
+        android:id="@+id/ivHero"
+        android:layout_width="100dp"
+        android:layout_height="166dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_hero"
+        />
+
+
+    <ImageView
+        android:id="@+id/ivHeroHeart"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_above="@id/ivHero"
+        android:src="@drawable/ic_heart"
+        />
+
+    <TextView
+        android:id="@+id/tvHeroHp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/ivHero"
+        android:layout_toRightOf="@id/ivHeroHeart"
+        android:paddingBottom="5dp"
+        android:textSize="30sp"
+        tools:text="100"
+        />
+
+    <ImageView
+        android:id="@+id/ivHeroWeapon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignTop="@id/ivHero"
+        android:layout_toRightOf="@id/ivHero"
+        android:src="@drawable/ic_wood_sword"
+        />
+
+    <ImageView
+        android:id="@+id/ivHeroBottle"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_below="@id/ivHero"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/ic_bottle"
+        android:visibility="gone"
+        />
+
+    <ImageView
+        android:id="@+id/ivWolf"
+        android:layout_width="100dp"
+        android:layout_height="166dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_wolf"
+        />
+
+    <ImageView
+        android:id="@+id/ivWolfHeart"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_above="@id/ivWolf"
+        android:layout_alignLeft="@id/ivWolf"
+        android:src="@drawable/ic_heart"
+        />
+
+    <TextView
+        android:id="@+id/tvWolfHp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/ivWolf"
+        android:layout_toRightOf="@id/ivWolfHeart"
+        android:paddingBottom="5dp"
+        android:textSize="30sp"
+        tools:text="100"
+        />
+
+    <ImageView
+        android:id="@+id/ivWolfWeapon"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignBottom="@id/ivWolf"
+        android:layout_toLeftOf="@id/ivWolf"
+        android:src="@drawable/ic_claw"
+        android:visibility="gone"
+        />
+
+</RelativeLayout>

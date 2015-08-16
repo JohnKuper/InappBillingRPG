@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">InAppBillingRPGPractice</string>
+
+    <string name="action_upgrade_sword">Upgrade sword</string>
+    <string name="action_buy_health_bottle">Buy health bottle</string>
+    <string name="action_drop_golden_sword">Drop your golden sword</string>
+
+    <string name="game_is_over">Game is over. The fallen won\'t be forgotten…</string>
+    <string name="hero_was_defeated">Hero was defeated!!!</string>
+    <string name="wolf_was_defeated">Wolf was defeated!!!</string>
+</resources>
