@@ -9,4 +9,5 @@
     <string name="hero_was_defeated">Hero was defeated!!!</string>
     <string name="wolf_was_defeated">Wolf was defeated!!!</string>
     <string name="damage_text">Damage: %1$d</string>
+    <string name="exit_text">Exit</string>
 </resources>

@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() != R.id.menu_overflow) {
+        if (item.getItemId() != R.id.menu_overflow && item.getItemId() != R.id.action_exit) {
             if (mIsGameOver) {
                 sayToast(getString(R.string.game_is_over));
                 return true;
@@ -195,6 +195,9 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.action_drop_sword:
                 dropSword();
+                return true;
+            case R.id.action_exit:
+                finish();
                 return true;
         }
         return false;
