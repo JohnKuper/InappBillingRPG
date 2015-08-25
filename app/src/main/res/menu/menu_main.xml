@@ -4,18 +4,30 @@
       tools:context=".MainActivity">
 
     <item
-        android:id="@+id/action_upgrade_sword"
-        android:title="@string/action_upgrade_sword"
-        app:showAsAction="never"/>
+        android:id="@+id/menu_overflow"
+        android:icon="@drawable/ic_toc_white_24dp"
+        android:orderInCategory="100"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/action_upgrade_sword"
+                android:title="@string/action_upgrade_sword"
+                app:showAsAction="never"/>
 
-    <item
-        android:id="@+id/action_buy_bottle"
-        android:title="@string/action_buy_health_bottle"
-        app:showAsAction="never"/>
+            <item
+                android:id="@+id/action_buy_bottle"
+                android:title="@string/action_buy_health_bottle"
+                app:showAsAction="never"/>
 
-    <item
-        android:id="@+id/action_drop_sword"
-        android:title="@string/action_drop_golden_sword"
-        app:showAsAction="never"/>
+            <item
+                android:id="@+id/action_drop_sword"
+                android:title="@string/action_drop_golden_sword"
+                app:showAsAction="never"/>
+            <item
+                android:id="@+id/action_exit"
+                android:title="@string/exit_text"
+                app:showAsAction="never"/>
+        </menu>
+    </item>
 
 </menu>

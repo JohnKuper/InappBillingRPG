@@ -14,6 +14,15 @@
         android:src="@drawable/ic_hero"
         />
 
+    <TextView
+        android:id="@+id/tvHeroDamage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivHero"
+        android:layout_marginLeft="13dp"
+        android:text="Damage: 10"
+        android:textStyle="bold"
+        />
 
     <ImageView
         android:id="@+id/ivHeroHeart"
@@ -47,10 +56,12 @@
         android:id="@+id/ivHeroBottle"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_below="@id/ivHero"
+        android:layout_below="@id/tvHeroDamage"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
         android:src="@drawable/ic_bottle"
         android:visibility="gone"
+        tools:visibility="visible"
         />
 
     <ImageView
@@ -60,6 +71,17 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:src="@drawable/ic_wolf"
+        />
+
+    <TextView
+        android:id="@+id/tvWolfDamage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/ivWolf"
+        android:layout_below="@id/ivWolf"
+        android:layout_marginLeft="13dp"
+        android:text="Damage: 20"
+        android:textStyle="bold"
         />
 
     <ImageView

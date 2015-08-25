@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private Purchase mLastBottlePurchase;
     private Purchase mLastSwordPurchase;
     private TextView mTvHeroHP;
+    private TextView mTvHeroDamage;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -89,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
         mTvHeroHP.setText(String.valueOf(mHeroHP));
         final TextView tvWolfHP = (TextView) findViewById(R.id.tvWolfHp);
         tvWolfHP.setText(String.valueOf(mWolfHP));
+        mTvHeroDamage = (TextView) findViewById(R.id.tvHeroDamage);
+        mTvHeroDamage.setText(String.format(getString(R.string.damage_text), mHeroDamage));
 
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
@@ -177,9 +180,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (mIsGameOver) {
-            sayToast(getString(R.string.game_is_over));
-            return true;
+        if (item.getItemId() != R.id.menu_overflow && item.getItemId() != R.id.action_exit) {
+            if (mIsGameOver) {
+                sayToast(getString(R.string.game_is_over));
+                return true;
+            }
         }
         switch (item.getItemId()) {
             case R.id.action_buy_bottle:
@@ -190,6 +195,9 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.action_drop_sword:
                 dropSword();
+                return true;
+            case R.id.action_exit:
+                finish();
                 return true;
         }
         return false;
@@ -249,9 +257,7 @@ public class MainActivity extends AppCompatActivity {
             mIsSwordUpgraded = (swordPurchase != null && verifyDeveloperPayload(swordPurchase));
             Log.d(TAG, "Hero with " + (mIsSwordUpgraded ? "GOLD" : "WOODEN") + " SWORD");
             if (mIsSwordUpgraded) {
-                mHeroWeapon.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.ic_gold_sword));
-                mHeroDamage = 30;
-                mLastSwordPurchase = swordPurchase;
+                upgradeHeroSword(swordPurchase);
             }
 
             Purchase bottlePurchase = inventory.getPurchase(SKU_HEALTH_BOTTLE);
@@ -264,6 +270,13 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "Initial inventory query finished; enabling main UI.");
         }
     };
+
+    private void upgradeHeroSword(Purchase swordPurchase) {
+        mHeroWeapon.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.ic_gold_sword));
+        mHeroDamage = 30;
+        mTvHeroDamage.setText(String.format(getString(R.string.damage_text), mHeroDamage));
+        mLastSwordPurchase = swordPurchase;
+    }
 
     // Callback for when a purchase is finished
     IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener = new IabHelper.OnIabPurchaseFinishedListener() {
@@ -292,9 +305,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "Purchase is sword upgrade. Congratulating user.");
                 sayToast("Now your sword became very powerful");
                 mIsSwordUpgraded = true;
-                mHeroWeapon.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.ic_gold_sword));
-                mHeroDamage = 30;
-                mLastSwordPurchase = purchase;
+                upgradeHeroSword(purchase);
             }
         }
     };
@@ -311,6 +322,7 @@ public class MainActivity extends AppCompatActivity {
                     case SKU_GOLD_SWORD:
                         mHeroWeapon.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.ic_wood_sword));
                         mHeroDamage = 10;
+                        mTvHeroDamage.setText(String.format(getString(R.string.damage_text), mHeroDamage));
                         mLastSwordPurchase = null;
                         mIsSwordUpgraded = false;
                         sayToast("Your sword became very weak. Be careful");
